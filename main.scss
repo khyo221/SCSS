@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  h1 {
+    color: red;
+  }
+}
+
+//전역변수로 선언
+$size: 100px;
+$border: 1px solid black;
+$color: orange;
+
+@mixin color {
+  color: red;
+  background-color: yellow;
+  @content;
+}
+.box {
+  .event {
+    width: 320px;
+    height: $size;
+    background: #ccc;
+    border: $border;
+    margin: {
+      top: 10px;
+      left: 10px;
+    } //리팩토링
+    //margin-top: 10px;
+    //margin-left: 10px;
+    //  font-size: 20px;
+    // font-weight: bold;
+    font: {
+      size: 20px;
+      font-weight: bold;
+    }
+    text-align: center;
+    line-height: $size;
+  }
+  & .event01 {
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    .eve {
+      @include color {
+        text-decoration: underline;
+        //속성 더 추가하고 싶을때 복잡해지기 때문에 별도속성 뽑아내기
+      }
+      width: $size;
+      text-align: center;
+      border: $border;
+    }
+    & :nth-child(2) {
+      margin: 0 10px;
+    }
+  }
+  .event02 {
+    @include color();
+  }
+  .event03 {
+    background-color: $color;
+    &:hover {
+      background-color: darken($color, 30%);
+      //sass 에서 사용하는 컬러함수 lighten dark rgba
+      // mixxing saturate invert...
+    }
+  }
+}
+
+ul {
+  margin-top: 10px;
+  li {
+    width: $size;
+    height: $size;
+    list-style: none;
+    background-size: cover;
+    float: left;
+    margin-left: 10px;
+  }
+  //&:nth-child(1) {background-image: url(./images/best_01.png);}
+  //li:nth-child(2) {background-image: url(./images/best_02.png);}
+  //li:nth-child(3) {background-image: url(./images/best_03.png);}
+  //li:nth-child(4) {background-image: url(./images/best_04.png);}
+  //li:nth-child(5) {background-image: url(./images/best_05.png);}
+
+  @for $i from 1 through 5 {
+    li:nth-child(#{$i}) {
+      background-image: url(./images/best_0#{$i}.png);
+    }
+  }
+}
+//main sass파일 main.jsx에 import시켜주면 됨 / 두개 다쓸줄 알아야

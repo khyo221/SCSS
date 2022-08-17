@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container h1 {
+  color: red;
+}
+
+.box .event {
+  width: 320px;
+  height: 100px;
+  background: #ccc;
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-font-weight: bold;
+  text-align: center;
+  line-height: 100px;
+}
+.box .event01 {
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+}
+.box .event01 .eve {
+  color: red;
+  background-color: yellow;
+  text-decoration: underline;
+  width: 100px;
+  text-align: center;
+  border: 1px solid black;
+}
+.box .event01 :nth-child(2) {
+  margin: 0 10px;
+}
+.box .event02 {
+  color: red;
+  background-color: yellow;
+}
+.box .event03 {
+  background-color: orange;
+}
+.box .event03:hover {
+  background-color: #664200;
+}
+
+ul {
+  margin-top: 10px;
+}
+ul li {
+  width: 100px;
+  height: 100px;
+  list-style: none;
+  background-size: cover;
+}
+
+/*# sourceMappingURL=/main.39afc03c.css.map */
